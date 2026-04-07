@@ -1,4 +1,4 @@
-from trevro_secrets import *
+from secrets_db import *
 import analogio
 from node_config import *
 from simulation import get_instance

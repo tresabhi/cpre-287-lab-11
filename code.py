@@ -1,4 +1,4 @@
-from trevro_secrets import *
+from secrets_db import *
 import primary_control_node
 import networking
 import time

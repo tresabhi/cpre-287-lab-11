@@ -21,7 +21,7 @@ import ssl
 # secrets.py contains things that should not be committed to a repository, such as the WiFi SSID,
 # your Adafruit IO username and key, and the IP addresses of the control nodes.
 try:
-    from trevro_secrets import *
+    from secrets_db import *
 except ImportError:
     print("WiFi secrets are kept in secrets.py, please add them there!")
     raise

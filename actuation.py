@@ -1,4 +1,4 @@
-from trevro_secrets import *
+from secrets_db import *
 import adafruit_motor.servo
 from node_config import *
 import digitalio

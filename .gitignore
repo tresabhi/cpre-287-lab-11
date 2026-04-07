@@ -12,4 +12,4 @@ boot_out.txt
 secrets.py
 
 __pycache__
-trevro_secrets
+secrets_db.py
