@@ -25,3 +25,7 @@ if node_type == node_config.NODE_TYPE_PRIMARY:
 
         for _ in range(iterations):
             temperature_measurement_node.loop(1 / frequency)
+elif node_type == node_config.NODE_TYPE_SECONDARY:
+    import secondary_control_node
+
+    print("zooweemama")

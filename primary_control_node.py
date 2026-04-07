@@ -21,6 +21,8 @@ networking.mqtt_connect(
     [f"temperature-zone-{i + 1}" for i in range(num_zones)], message_received
 )
 
+networking.socket_connect()
+
 
 # Run the regular primary control node tasks
 def loop():
