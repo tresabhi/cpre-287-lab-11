@@ -1,6 +1,3 @@
-import wifi
-import socketpool
-import adafruit_minimqtt.adafruit_minimqtt as MQTT
 import networking
 from node_config import *
 
