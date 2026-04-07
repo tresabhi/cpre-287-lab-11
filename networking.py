@@ -1,8 +1,6 @@
 import time
 from node_config import *
-import microcontroller
 import gc
-import primary_control_node
 
 # Here we check if we need to use the "built-in" networking of the system instead of CircuitPython's
 # wifi and socketpool modules. This is the case if we are running a simulation on "desktop" Python.

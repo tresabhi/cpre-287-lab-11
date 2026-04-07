@@ -5,18 +5,14 @@ import temperature_measurement_node
 import node_config
 
 if node_type == node_config.NODE_TYPE_PRIMARY:
-    import primary_control_node as control_node
-else:
-    import secondary_control_node as control_node
+    import primary_control_node
 
-frequency = 10
+    frequency = 10
+    functions = [
+        networking.loop,
+        primary_control_node.loop,
+    ]
 
-functions = [
-    networking.loop,
-    control_node.loop,
-]
-
-if node_type == node_config.NODE_TYPE_PRIMARY:
     while True:
         start_time = start = time.time()
 
@@ -25,7 +21,6 @@ if node_type == node_config.NODE_TYPE_PRIMARY:
 
         end_time = start = time.time()
         elapsed_seconds = end_time - start_time
-
         iterations = round(elapsed_seconds * frequency)
 
         for _ in range(iterations):
