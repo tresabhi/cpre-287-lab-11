@@ -1,3 +1,4 @@
+import command
 from secrets_db import *
 import networking
 import time
@@ -7,8 +8,13 @@ import node_config
 if node_type == node_config.NODE_TYPE_PRIMARY:
     import primary_control_node
 
+    def send():
+        msg = command.Command(command.TYPE_NONE, [21, 67], "you smart right?")
+        networking.socket_send_message(msg)
+
     frequency = 10
     functions = [
+        send,
         networking.loop,
         primary_control_node.loop,
     ]
