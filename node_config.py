@@ -7,6 +7,7 @@ NODE_TYPE_SECONDARY = 2
 NODE_TYPE_TEMPERATURE = 3
 
 # Node's type, used to determine what code is run.
+print(dir(secrets))
 node_type = secrets.node_type
 
 # Total number of zones in the system
