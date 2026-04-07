@@ -10,7 +10,7 @@ if node_type == node_config.NODE_TYPE_PRIMARY:
 
     def send():
         msg = command.Command(command.TYPE_NONE, [21, 67], "you smart right?")
-        networking.socket_send_message(msg)
+        networking.socket_send_message("what on earth?")
 
     frequency = 10
     functions = [

@@ -10,7 +10,7 @@ num_zones = 3
 # Zone that the node is located in, starting at 0. Only relevant for temp measurement nodes.
 zone_id = 0
 ENABLE_MQTT = True
-ENABLE_SOCKETS = False
+ENABLE_SOCKETS = True
 
 inch_to_meter = 1 / 39.37
 iphone = 5.94 * inch_to_meter
