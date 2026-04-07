@@ -152,7 +152,7 @@ def mqtt_message_received(client, topic, message):
     # primary_control_node.message_received(client, topic, message)
 
     for cb in _message_received_callbacks:
-        print(f"MQTT callback for {cb}")
+        # print(f"MQTT callback for {cb}")
         try:
             cb(client, topic, message)
         except TypeError as e:
