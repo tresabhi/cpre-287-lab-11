@@ -1,3 +1,5 @@
+import secrets
+
 # Define possible node types
 NODE_TYPE_SIMULATED = 0
 NODE_TYPE_PRIMARY = 1
@@ -5,7 +7,7 @@ NODE_TYPE_SECONDARY = 2
 NODE_TYPE_TEMPERATURE = 3
 
 # Node's type, used to determine what code is run.
-node_type = NODE_TYPE_SIMULATED
+node_type = secrets.node_type
 
 # Total number of zones in the system
 num_zones = 3
