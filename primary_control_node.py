@@ -1,6 +1,6 @@
 import wifi
 import socketpool
-from secrets import secrets
+from trevro_secrets import secrets
 import adafruit_minimqtt.adafruit_minimqtt as MQTT
 import networking
 from node_config import *

@@ -21,7 +21,7 @@ import ssl
 # secrets.py contains things that should not be committed to a repository, such as the WiFi SSID,
 # your Adafruit IO username and key, and the IP addresses of the control nodes.
 try:
-    from secrets import secrets
+    from trevro_secrets import *
 except ImportError:
     print("WiFi secrets are kept in secrets.py, please add them there!")
     raise
@@ -120,11 +120,7 @@ mqtt_client = MQTT.MQTT(
 _mqtt_is_initialized = False
 
 # List of feeds that we're wanting to subscribe to but haven't yet
-_queued_feeds = [
-    "temperature-zone-1",
-    "temperature-zone-2",
-    "temperature-zone-3",
-]
+_queued_feeds = []
 
 # List of feeds that we have subscribed to
 _subscribed_feeds = []

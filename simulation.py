@@ -1,3 +1,4 @@
+from trevro_secrets import *
 from node_config import num_zones, zone_k
 import time
 import math

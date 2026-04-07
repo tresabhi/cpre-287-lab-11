@@ -1,3 +1,4 @@
+from trevro_secrets import *
 import adafruit_motor.servo
 from node_config import *
 import digitalio
@@ -77,12 +78,14 @@ else:
 
 # Control the heater (turn on by passing in True, off by passing in False)
 def set_heating(value: bool):
-    led_red.value = value
+    # led_red.value = value
+    pass
 
 
 # Control the cooler (turn on by passing in True, off by passing in False)
 def set_cooling(value: bool):
-    led_blue.value = value
+    # led_blue.value = value
+    pass
 
 
 # Control the circulation fan (turn on by passing in True, off by passing in False)

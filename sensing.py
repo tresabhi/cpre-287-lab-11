@@ -1,3 +1,4 @@
+from trevro_secrets import *
 import analogio
 from node_config import *
 from simulation import get_instance
@@ -26,7 +27,7 @@ elif board.board_id == "adafruit_funhouse":
     _lm35_pin = analogio.AnalogIn(board.A0)
     print("Using A0")
 elif board.board_id == "unexpectedmaker_feathers2":
-    _lm35_pin = analogio.AnalogIn(board.A3)
+    # _lm35_pin = analogio.AnalogIn(board.A3)
     print("Using A3")
 else:
     _lm35_pin = None
@@ -52,7 +53,7 @@ def funhouse_temperature_c():
 # Get a temperature reading using whatever sensor is configured. zone is the zone ID of
 # the zone we're getting the reading for (used when simulating)
 def get_current_temperature_f(zone):
-    if node_type == NODE_TYPE_SIMULATED:
+    if node_type in [NODE_TYPE_SIMULATED, NODE_TYPE_PRIMARY, NODE_TYPE_SECONDARY]:
         instance = get_instance()
         return instance.get_temperature_f(zone)
 
