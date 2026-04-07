@@ -1,14 +1,19 @@
 from secrets_db import *
-import primary_control_node
 import networking
 import time
 import temperature_measurement_node
+import node_config
+
+if node_type == node_config.NODE_TYPE_PRIMARY:
+    import primary_control_node as control_node
+else:
+    import secondary_control_node as control_node
 
 frequency = 10
 
 functions = [
     networking.loop,
-    primary_control_node.loop,
+    control_node.loop,
 ]
 
 if node_type == node_config.NODE_TYPE_PRIMARY:
