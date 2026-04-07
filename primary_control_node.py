@@ -10,7 +10,7 @@ from node_config import *
 # topic is the feed name the message was published on.
 # message is the contents of the message.
 def message_received(client, topic, message):
-    print(f"New message on topic {topic}: {message}")
+    print(f"(PRIMARY) New message on topic {topic}: {message}")
 
     # TODO: Parse the feed name and take action
 
