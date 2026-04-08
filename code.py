@@ -1,3 +1,4 @@
+import command
 from secrets_db import *
 import networking
 import time
@@ -14,7 +15,7 @@ if node_type == node_config.NODE_TYPE_PRIMARY:
 
     def send():
         # msg = command.Command(command.TYPE_NONE, [21, 67], "you smart right?")
-        networking.socket_send_message("what on earth?")
+        networking.socket_send_message("what on earth is happening")
 
     def run(elapsed_seconds):
         iterations = round(elapsed_seconds * frequency)

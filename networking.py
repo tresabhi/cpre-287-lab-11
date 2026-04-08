@@ -349,7 +349,7 @@ def socket_send_message(msg):
     if len(msg) > SOCKET_MESSAGE_MAX_LENGTH:
         print("Warning: message to long, dropped")
         return
-    print("Sending socket Message: " + msg)
+    # print("Sending socket Message: " + msg)
 
     # If it's a simulated node, we directly hand the message to the receive callback function.
     if node_type == NODE_TYPE_SIMULATED or not ENABLE_SOCKETS:
@@ -361,7 +361,7 @@ def socket_send_message(msg):
 
     try:
         size = my_socket.send(msg)
-        print("Sent " + str(size) + " bytes")
+        # print("Sent " + str(size) + " bytes")
     except OSError as e:
         print("Error: message could not be send. Reconnecting")
         socket_connect()
@@ -428,7 +428,7 @@ def loop():
                 n = connected_socket.recv_into(socket_buffer, SOCKET_MESSAGE_MAX_LENGTH)
 
                 msg = socket_buffer[:n].decode()
-                print("Message Received: " + str(msg))
+                # print("Message Received: " + str(msg))
                 commands = msg.split("|")
                 for command in commands:
                     if not (command.isspace() or command is ""):
