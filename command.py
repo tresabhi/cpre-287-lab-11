@@ -9,8 +9,9 @@ HEAT_COOL_COOLING = 1
 HEAT_COOL_HEATING = 2
 
 # Commands are parsed into strings before they are sent over the network
-COMMAND_MAX_LENGTH = 100 # Maximum number of characters in a Command string
-COMMAND_SEPARATOR = ':'  # Used to delineate the components of a Command string
+COMMAND_MAX_LENGTH = 100  # Maximum number of characters in a Command string
+COMMAND_SEPARATOR = ":"  # Used to delineate the components of a Command string
+
 
 # Represents a command sent from the primary control node to the secondary control node
 class Command:
@@ -26,7 +27,7 @@ class Command:
             try:
                 self.type = int(words[0])
             except ValueError:
-                print(f'Warning: unable to convert {words[0]} to int, setting command type to NONE')
+                # print(f'Warning: unable to convert {words[0]} to int, setting command type to NONE')
                 self.type = TYPE_NONE
             if len(words) > 1:
                 self.values = words[1:]
@@ -38,8 +39,7 @@ class Command:
     # This function is called when a Command is converted to a string with str(). This is done
     # by the primary control node in order to get the message body to send over the network.
     def __str__(self):
-        ret = f'{self.type}'
+        ret = f"{self.type}"
         for val in self.values:
-            ret += f':{val}'
+            ret += f":{val}"
         return ret
-

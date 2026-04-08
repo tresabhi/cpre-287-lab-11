@@ -1,5 +1,6 @@
 import networking
 from node_config import *
+import command
 
 
 def message_received(client, topic, message):
@@ -15,4 +16,6 @@ networking.socket_connect()
 
 
 def loop():
-    pass
+    demo_command = command.Command(msg="message to secondary through mqqt")
+    networking.mqtt_publish_message(networking.TEMP_FEEDS, demo_command)
+    # networking.socket_send_message("what on earth is happening")

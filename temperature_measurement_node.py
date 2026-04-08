@@ -48,8 +48,10 @@ def loop(dt):
         angle /= len(servos)
         damper = (angle - actuation.SERVO_MIN) * (100 / actuation.SERVO_RANGE)
 
-        networking.mqtt_publish_message(networking.TEMP_FEEDS[zone], current_temp)
-        networking.mqtt_publish_message(networking.DAMPER_FEEDS[zone], damper)
+        networking.mqtt_publish_message(
+            networking.TEMP_FEEDS[zone], round(current_temp * 100) / 100
+        )
+        networking.mqtt_publish_message(networking.DAMPER_FEEDS[zone], round(damper))
         networking.mqtt_publish_message(networking.COOLING_FEED, f"{instance.cooling}")
         networking.mqtt_publish_message(networking.HEATING_FEED, f"{instance.heating}")
 
