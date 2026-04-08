@@ -5,6 +5,8 @@ import time
 import temperature_measurement_node
 import node_config
 
+networking.connect_to_network()
+
 pre_functions = [
     networking.loop,
 ]
