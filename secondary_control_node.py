@@ -1,8 +1,5 @@
 import networking
 
-networking.socket_connect()
-
-
 def listen(*args):
     print(args)
 
