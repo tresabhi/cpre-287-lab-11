@@ -25,6 +25,7 @@ if node_type == node_config.NODE_TYPE_PRIMARY:
 
     frequency = 10
     pre_functions.extend([send, primary_control_node.loop])
+    post_functions.extend([run])
 
 elif node_type == node_config.NODE_TYPE_SECONDARY:
     import secondary_control_node

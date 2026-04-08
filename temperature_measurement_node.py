@@ -1,28 +1,10 @@
-import utils
-import node_config
-import sensing
 import adafruit_dotstar
-import board, analogio, digitalio
+import board, digitalio
 from node_config import *
 import networking
 import time
 from sensing import *
 from simulation import *
-
-# Set up networking.
-networking.connect_to_network()
-networking.mqtt_initialize()
-networking.mqtt_connect()
-
-# The previously reported temperature values.
-# prev_temps = [None] * num_zones
-
-# Timing variables.
-# LOOP_INTERVAL_NS = 1000000000 / 1000
-# _prev_time = time.monotonic_ns()
-
-# TEMPERATURE_LOG_THRESHOLD = 0
-# last_temps = {}
 
 
 # Runs periodic node tasks.
