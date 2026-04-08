@@ -40,6 +40,7 @@ def loop(dt):
         current_temp = get_current_temperature_f(zone)
         servos = actuation.zone_servos[zone]
         angle = 0
+        instance = get_instance()
 
         for servo in servos:
             angle += servo.angle
@@ -49,6 +50,8 @@ def loop(dt):
 
         networking.mqtt_publish_message(networking.TEMP_FEEDS[zone], current_temp)
         networking.mqtt_publish_message(networking.DAMPER_FEEDS[zone], damper)
+        networking.mqtt_publish_message(networking.COOLING_FEED, f"{instance.cooling}")
+        networking.mqtt_publish_message(networking.HEATING_FEED, f"{instance.heating}")
 
 
 ldo2 = digitalio.DigitalInOut(board.LDO2)
