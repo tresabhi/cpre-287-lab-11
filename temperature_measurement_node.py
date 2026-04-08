@@ -5,6 +5,7 @@ import networking
 import time
 from sensing import *
 from simulation import *
+import actuation
 
 
 # Runs periodic node tasks.
@@ -37,7 +38,17 @@ def loop(dt):
 
     for zone in range(num_zones):
         current_temp = get_current_temperature_f(zone)
+        servos = actuation.zone_servos[zone]
+        angle = 0
+
+        for servo in servos:
+            angle += servo.angle
+
+        angle /= len(servos)
+        damper = (angle - actuation.SERVO_MIN) * (100 / actuation.SERVO_RANGE)
+
         networking.mqtt_publish_message(networking.TEMP_FEEDS[zone], current_temp)
+        networking.mqtt_publish_message(networking.DAMPER_FEEDS[zone], damper)
 
 
 ldo2 = digitalio.DigitalInOut(board.LDO2)
