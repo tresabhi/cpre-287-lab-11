@@ -11,6 +11,8 @@ def listen(message):
     [command_type, *arguments] = message.split(":")
     command_type = int(command_type)
 
+    print(command_type, command_type == command.TYPE_HEARTBEAT)
+
     if t is None:
         t = time.monotonic()
     elif command_type == command.TYPE_HEARTBEAT:

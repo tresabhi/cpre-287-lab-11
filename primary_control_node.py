@@ -16,5 +16,7 @@ networking.socket_connect()
 
 
 def loop():
-    demo_command = command.Command(values=["message to secondary through socket"])
+    demo_command = command.Command(
+        type=command.TYPE_HEARTBEAT, values=["message to secondary through socket"]
+    )
     networking.socket_send_message(demo_command)
