@@ -4,7 +4,7 @@ import command
 import heart
 
 
-networking.socket_connect("secondary")
+# networking.socket_connect("secondary")
 
 
 def message_received(client, topic, message):

@@ -9,30 +9,26 @@ max_dropped_heatbeats = 3
 
 
 def listen():
-    print("I heard a heatbeat!")
     global t0, dts, dt_average
 
     if t0 == None:
         t0 = time.monotonic()
 
-    elif type == command.TYPE_HEARTBEAT:
-        dt = time.monotonic() - t0
-        t0 = time.monotonic()
+    dt = time.monotonic() - t0
+    t0 = time.monotonic()
 
-        dts.append(dt)
-        dts = dts[-10:]
+    dts.append(dt)
+    dts = dts[-10:]
 
-        dt_average = sum(dts) / len(dts)
+    dt_average = sum(dts) / len(dts)
 
 
 def beat():
-    print("I am beating!")
     beat_command = command.Command(type=command.TYPE_HEARTBEAT, values=[])
     networking.socket_send_message(beat_command)
 
 
 def loop():
-    print("I am looping!")
     global dt_average, t0
 
     if dt_average == None:

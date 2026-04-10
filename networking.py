@@ -301,7 +301,7 @@ def socket_connect(target):
             my_socket.connect((host, TCP_PORT))
             connected = True
         except OSError as e:
-            print("Failed to connect to secondary node. Trying again...")
+            print(f"Failed to connect to {target} node. Trying again...")
             time.sleep(1)
 
 
