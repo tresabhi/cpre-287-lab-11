@@ -285,9 +285,7 @@ def socket_connect(target):
 
     # Refresh the socket - seems to help sometimes
     global my_socket
-    print(
-        f"Connecting to secondary control node {SECONDARY_HOST} on port {TCP_PORT}..."
-    )
+    print(f"Connecting to secondary control node {host} on port {TCP_PORT}...")
 
     connected = False
     while not connected:
@@ -300,7 +298,7 @@ def socket_connect(target):
         my_socket.setblocking(True)
 
         try:
-            my_socket.connect((SECONDARY_HOST, TCP_PORT))
+            my_socket.connect((host, TCP_PORT))
             connected = True
         except OSError as e:
             print("Failed to connect to secondary node. Trying again...")
