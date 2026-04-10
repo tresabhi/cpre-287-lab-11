@@ -4,6 +4,9 @@ import command
 import heart
 
 
+networking.socket_connect("secondary")
+
+
 def message_received(client, topic, message):
     pass
 
@@ -22,9 +25,8 @@ def listen(message):
         heart.listen()
 
 
+networking.socket_listen(listen)
+
+
 def loop():
     heart.loop()
-
-
-networking.socket_connect()
-networking.socket_listen(listen)

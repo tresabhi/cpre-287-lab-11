@@ -275,7 +275,9 @@ socket_buffer = bytearray([0] * SOCKET_MESSAGE_MAX_LENGTH)
 
 
 # Connect to the secondary node over the network socket.
-def socket_connect():
+def socket_connect(target):
+    host = SECONDARY_HOST if target is "secondary" else PRIMARY_HOST
+
     if node_type == NODE_TYPE_SIMULATED or not ENABLE_SOCKETS:
         # If we're simulating, there's nothing to do here.
         print("Setting up simulated socket connection")

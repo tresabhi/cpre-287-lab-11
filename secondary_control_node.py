@@ -3,6 +3,8 @@ import command
 import time
 import heart
 
+networking.socket_connect("primary")
+
 
 def listen(message):
     [type, *arguments] = message.split(":")
@@ -14,6 +16,3 @@ def listen(message):
 
 def loop():
     heart.beat()
-
-
-networking.socket_connect()
