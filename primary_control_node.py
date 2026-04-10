@@ -13,8 +13,6 @@ networking.mqtt_connect(
     [f"temperature-zone-{i + 1}" for i in range(num_zones)], message_received
 )
 
-networking.socket_connect()
-
 
 def listen(message):
     [type, *arguments] = message.split(":")
@@ -29,4 +27,5 @@ def loop():
     heart.beat()
 
 
+networking.socket_connect()
 networking.socket_listen(listen)

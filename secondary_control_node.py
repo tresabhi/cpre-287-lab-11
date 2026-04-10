@@ -17,4 +17,5 @@ def loop():
     heart.beat()
 
 
+networking.socket_connect()
 networking.socket_listen(listen)
