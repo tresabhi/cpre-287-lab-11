@@ -345,7 +345,8 @@ def socket_listen(callback_function):
 
 # Send a message over the socket. msg is the message to be sent and should be a string.
 def socket_send_message(msg):
-    msg = msg + "|"
+    msg = f"{msg}|"
+
     if len(msg) > SOCKET_MESSAGE_MAX_LENGTH:
         print("Warning: message to long, dropped")
         return

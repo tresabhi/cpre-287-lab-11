@@ -16,6 +16,5 @@ networking.socket_connect()
 
 
 def loop():
-    demo_command = command.Command(msg="message to secondary through mqqt")
-    networking.mqtt_publish_message(networking.TEMP_FEEDS, demo_command)
-    # networking.socket_send_message("what on earth is happening")
+    demo_command = command.Command(values=["message to secondary through socket"])
+    networking.socket_send_message(demo_command)

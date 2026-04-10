@@ -40,6 +40,8 @@ class Command:
     # by the primary control node in order to get the message body to send over the network.
     def __str__(self):
         ret = f"{self.type}"
+
         for val in self.values:
             ret += f":{val}"
+
         return ret
