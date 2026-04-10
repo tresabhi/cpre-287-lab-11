@@ -28,6 +28,8 @@ if node_type == node_config.NODE_TYPE_PRIMARY:
 elif node_type == node_config.NODE_TYPE_SECONDARY:
     import secondary_control_node
 
+    pre_functions.extend([secondary_control_node.loop])
+
 while True:
     start_time = start = time.time()
 

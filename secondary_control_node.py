@@ -2,20 +2,44 @@ import networking
 import command
 import time
 
-t = None
+t0 = None
+dts = []
+dt_average = None
+max_dropped_heatbeats = 3
 
 
 def listen(message):
-    global t
-    [command_type, *arguments] = message.split(":")
-    command_type = int(command_type)
+    global t0, dts, dt_average
 
-    if t == None:
-        t = time.monotonic()
-    elif command_type == command.TYPE_HEARTBEAT:
-        dt = time.monotonic() - t
-        t = time.monotonic()
-        print(f"{dt=}")
+    [type, *arguments] = message.split(":")
+    type = int(type)
+
+    if t0 == None:
+        t0 = time.monotonic()
+
+    elif type == command.TYPE_HEARTBEAT:
+        dt = time.monotonic() - t0
+        t0 = time.monotonic()
+
+        dts.append(dt)
+        dts = dts[-10:]
+
+        dt_average = sum(dts) / len(dts)
+
+
+def loop():
+    global dt_average, t0
+
+    if dt_average == None:
+        return
+
+    time_since_last = time.monotonic() - t0
+    expected_heartbeats = time_since_last / dt_average
+
+    if expected_heartbeats >= max_dropped_heatbeats:
+        print(
+            f"Primary board is probably dead, expected {round(expected_heartbeats)} beats by now"
+        )
 
 
 networking.socket_listen(listen)
