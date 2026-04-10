@@ -1,6 +1,7 @@
 import networking
 from node_config import *
 import command
+import heart
 
 
 def message_received(client, topic, message):
@@ -15,8 +16,17 @@ networking.mqtt_connect(
 networking.socket_connect()
 
 
+def listen(message):
+    [type, *arguments] = message.split(":")
+    type = int(type)
+
+    if type == command.TYPE_HEARTBEAT:
+        heart.listen()
+
+
 def loop():
-    demo_command = command.Command(
-        type=command.TYPE_HEARTBEAT, values=["message to secondary through socket"]
-    )
-    networking.socket_send_message(demo_command)
+    heart.loop()
+    heart.beat()
+
+
+networking.socket_listen(listen)
