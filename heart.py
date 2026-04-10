@@ -9,6 +9,7 @@ max_dropped_heatbeats = 3
 
 
 def listen():
+    print("I heard a heatbeat!")
     global t0, dts, dt_average
 
     if t0 == None:
@@ -25,11 +26,13 @@ def listen():
 
 
 def beat():
+    print("I am beating!")
     beat_command = command.Command(type=command.TYPE_HEARTBEAT, values=[])
     networking.socket_send_message(beat_command)
 
 
 def loop():
+    print("I am looping!")
     global dt_average, t0
 
     if dt_average == None:
