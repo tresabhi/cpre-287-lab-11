@@ -23,9 +23,8 @@ def listen(message):
 
 
 def loop():
-    # heart.loop()
-    heart.beat()
+    heart.loop()
 
 
 networking.socket_connect()
-# networking.socket_listen(listen)
+networking.socket_listen(listen)
