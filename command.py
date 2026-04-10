@@ -2,6 +2,7 @@
 TYPE_NONE = 0
 TYPE_DAMPER = 1
 TYPE_HEAT_COOL = 2
+TYPE_HEARTBEAT = 3
 
 # Define possible values for Commands of TYPE_HEAT_COOL
 HEAT_COOL_OFF = 0
